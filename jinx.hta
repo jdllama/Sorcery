@@ -1,0 +1,476 @@
+<!--
+	Sorcery is a creation of Jeffrey "J.D." Lowe, Jr.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>
+Sorcery - Wendy's Help Desk Tool Box
+</title>
+<hta:application
+	ApplicationName="Sorcery"
+	ID="sorcery"
+	icon="icon2.ico"
+	version="2.0"
+	contextmenu="yes"
+	maximizebutton="no"
+	scroll="no"
+	border="thin"
+/>
+<script type="text/javascript">
+var truestart = +new Date();
+</script>
+<link rel="stylesheet" type="text/css" href="build/reset-fonts/reset-fonts.css">
+<link rel="stylesheet" type="text/css" href="build/assets/skins/sam/skin.css">
+<link rel="stylesheet" type="text/css" href="build/treeview/assets/skins/sam/treeview.css">
+<!--link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.9.0/build/reset-fonts/reset-fonts.css&2.9.0/build/assets/skins/sam/skin.css&2.9.0/build/treeview/assets/skins/sam/treeview.css" -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<!--script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/utilities/utilities.js&2.9.0/build/container/container-min.js&2.9.0/build/menu/menu-min.js&2.9.0/build/button/button-min.js&2.9.0/build/slider/slider-min.js&2.9.0/build/colorpicker/colorpicker-min.js&2.9.0/build/tabview/tabview-min.js&2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/treeview/treeview-min.js"></script -->
+<script type="text/javascript" src="build/utilities/utilities.js"></script>
+		<script type="text/javascript" src="build/container/container-min.js"></script>
+		<script type="text/javascript" src="build/calendar/calendar-min.js"></script>
+		<script type="text/javascript" src="build/menu/menu-min.js"></script>
+		<script type="text/javascript" src="build/button/button-min.js"></script>
+		<script type="text/javascript" src="build/slider/slider-min.js"></script>
+		<script type="text/javascript" src="build/colorpicker/colorpicker-min.js"></script>
+		<script type="text/javascript" src="build/tabview/tabview-min.js"></script>
+		<script type="text/javascript" src="build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="build/treeview/treeview-min.js"></script>
+
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.jcryption.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+
+		<script type="text/javascript" src="scripts/stores.js"></script>
+		<script type="text/javascript" src="scripts/aloha.js"></script>
+		<script type="text/javascript" src="scripts/phones.js"></script>
+		<script type="text/javascript" src="scripts/micros.js"></script>
+
+		<script type="text/javascript" src="scripts/jinx.js"></script>
+		<script type="text/javascript" src="scripts/jinx.install.js"></script>
+		<script type="text/javascript" src="scripts/jinx.log.js"></script>
+		<script type="text/javascript" src="scripts/jinx.tabs.js"></script>
+		<script type="text/javascript" src="scripts/jinx.menubar.js"></script>
+		<script type="text/javascript" src="scripts/jinx.polling.js"></script>
+
+		<script type="text/javascript" src="scripts/jinx.apps.js"></script>
+		<script type="text/javascript" src="scripts/jinx.autos.js"></script>
+		<script type="text/javascript" src="scripts/jinx.buttons.js"></script>
+		<script type="text/javascript" src="scripts/jinx.magic.js"></script>
+		<script type="text/javascript" src="scripts/jinx.phone.js"></script>
+		<script type="text/javascript" src="scripts/jinx.calllog.js"></script>
+		<script type="text/javascript" src="scripts/jinx.services.js"></script>
+		<script type="text/javascript" src="scripts/jinx.settings.js"></script>
+		<script type="text/javascript" src="scripts/jinx.wenet.js"></script>
+
+		<script type="text/javascript" src="scripts/jinx.source.js"></script>
+		<script type="text/javascript" src="scripts/jinx.easter.js"></script>	
+
+		<script type="text/javascript" src="scripts/jinx.main.js"></script>
+
+<!--script type="text/javascript" src="required.js"></script -->
+<script type="text/javascript">
+//Code care of http://stackoverflow.com/questions/7718935/load-scripts-asynchronously
+//"compiled.js" is compiled by G:\jinx\combiner.hta
+/*(function () {
+	var appender = function(str) {
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = str;
+		var x = document.getElementsByTagName('script')[0];
+		x.parentNode.insertBefore(s, x);
+	};
+	
+	var beta = false;
+	if(beta == true) {
+		document.title = "Sorcery UPDATE MODE";
+		//alert("Warning, Sorcery is in Update Mode; some things may not function properly.");
+		for(var i = 0, src;src = required[i];i++) {
+			appender(src);
+		}
+	}
+	else {
+		appender("compiled.js");
+	}
+})();*/
+</script>
+</head>
+<body class="yui-skin-sam">
+<div id="menubar" class="yui-skin-sam">
+</div>
+<br />
+<div id="tabs" class="yui-navset">
+	<ul class="yui-nav"> 
+		<li class="selected"><a href="#maintab"><em>Main</em></a></li>
+		<li><a href="#dmbtab"><em>Digital Menu Boards</em></a></li>
+		<li><a href="#servicestab"><em>Services</em></a></li>
+		<li><a href="#pollingtab"><em>Polling</em></a></li>
+		<li><a href="#phonetab"><em>Phone List</em></a></li>
+		<li><a href="#settingstab"><em>Settings</em></a></li>
+		<li><a href="#calllogtab"><em>Call Log</em></a></li>
+		<li><a href="#feedbacktab"><em>Feedback</em></a></li>
+		<li style="display:none" id="consolelink"><a href="#consoletab"><em>Console</em></a></li>
+		<li><a href="#sourcetab"><em>Source Code</em></a></li>
+	</ul>
+	<div id="content" class="yui-content">
+		<div id="maintab">
+			<span id="leftmain">
+				<br />
+				<span id="noteholder">
+					<label for="storeid" class="mainlabel">Site ID:</label><input type="text" name="storeid" id="storeid" value="" class="notes shadow" tabindex="1"/><br />
+					<label for="name" class="mainlabel">Name:</label><input type="text" name="name" id="name" value="" class="notes shadow" tabindex="2"/><br />
+					<label for="issue" class="mainlabel">Issue:</label><textarea rows=3 tabindex="3" name="issue" id="issue" class="notes shadow"></textarea><!--span id="issue" name="issue" contentEditable="true" class="notes shadow"></span --><br />
+					<br />
+					<label class="mainlabel">Area:&nbsp;</label><span id="area"></span><br />
+					<label class="mainlabel">Breakfast:&nbsp;</label><span id="breakfast"></span><br />
+					<label class="mainlabel">DM:&nbsp;</label><span id="DM"></span><br />
+					<label class="mainlabel">Description:&nbsp;</label><span id="sitestatusdescription"></span><br />
+					<label class="mainlabel">EMS:&nbsp;</label><span id="ems"></span><br />
+					<label class="mainlabel">Phone Provider:&nbsp;</label><span id="phoneprovider"></span><br />
+					<label class="mainlabel">Register Count:&nbsp;</label><span id="regcount"></span><br />
+					<label class="mainlabel">Safe:&nbsp;</label><span id="safe"></span><br />
+					<label class="mainlabel">SLA:&nbsp;</label><span id="sla"></span><br />
+					<label class="mainlabel">State:&nbsp;</label><span id="storeState"></span><br />
+					<label class="mainlabel">Store Number:&nbsp;</label><span id="storePhoneNum"></span><br />
+					<label class="mainlabel">Time Zone:&nbsp;</label><span id="timeZone"></span><br />
+					<label class="mainlabel">Which Micros Server:&nbsp;</label><span id="whichmicros"></span><br />
+				</span>
+				<span id="buttonholder">
+					<button id="openincmon" tabindex="4">Open Incident Monitor</button><br />
+					<button id="opencreateinc" tabindex="5">Create Incident</button><br />
+					<button id="savelog" tabindex="6">Save Log</button><br />
+					<button id="reset" tabindex="7">Reset</button><br />
+				</span>
+			</span>
+			<span id="rightmain">
+				<br />
+				<div id="quicktooltabs" class="yui-navset">
+					<ul class="yui-nav">
+						<li><a href="#quicktools" id="autopinglink"><em>Quick Tools</em></a></li>
+						<li><a href="#tickets"><em>Ticket Query</em></a></li>
+						<li class="selected"><a href="#autoping"><em>Auto Ping</em></a></li>
+						<li><a href="#recentcalls"><em>Recent Calls</em></a></li>
+					</ul>
+					<div class="yui-content" id="quicktoolcontent">
+						<div id="quicktools">
+							<label for="showbuttons">Show All Buttons:</label><input type="checkbox" id="showbuttons" name="showbuttons" />
+							<div id="allbuttons">
+							</div>
+							<div id="accordion">
+							</div>
+						</div>
+						<div id="tickets">
+							<div id="ticketholder">
+							</div>
+						</div>
+						<div id="autoping">
+							<iframe id="fortinetiframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#Fortinet"></iframe>
+							<iframe id="mwsiframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#MWS"></iframe>
+							<br />
+							<iframe id="pos1iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#POS1"></iframe>
+							<iframe id="pos2iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#POS2"></iframe>
+							<iframe id="pos3iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#POS3"></iframe>
+							<iframe id="pos4iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#POS4"></iframe>
+							<br />
+							<iframe id="ocsiframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#OCS"></iframe>
+							<iframe id="emsiframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#EMS"></iframe>
+							<iframe id="hmeiframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#HME"></iframe>
+							<iframe id="printeriframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#Printer"></iframe>
+							<br />
+							<iframe id="epic1iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#EPIC1"></iframe>
+							<iframe id="epic2iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#EPIC2"></iframe>
+							<iframe id="epic3iframe" application="yes" frameborder="0" scrolling="no" allowTransparency="true" style="width:50px;height:35px;" src="pinger.html#EPIC3"></iframe>
+							<br />
+							<center>
+							<span class="ui-icon ui-icon-refresh" id="refreshautoping"></span>
+							</center>
+						</div>
+						<div id="recentcalls">
+							<table border=1 cellspacing=1 cellpadding=1>
+								<thead>
+									<tr>
+										<td>Agent</td>
+										<td>Timestamp</td>
+									</tr>
+								</thead>
+								<tbody id="recentcalllog">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</span>
+		</div>
+		<div id="dmbtab">
+			<div id="dmbbuttonhold">
+			</div>
+		</div>
+		<div id="servicestab">
+			<div id="serviceshold">
+			Which Device (will not work on Aloha stores):
+			<select id="servicesselect" size=1>
+				<option value="-" selected>-</option>
+				<option value="1" disabled>POS1</option>
+				<option value="2" disabled>POS2</option>
+				<option value="3" disabled>POS3</option>
+				<option value="4" disabled>POS4</option>
+				<option value="101" disabled>MWS</option>
+			</select>
+			</div>
+			<div id="servicestarget"></div>
+		</div>
+		<div id="pollingtab">
+			<div id="pollinghold">
+				<label for="pollingpassword" id="pollingpasswordlabel">Password: <input type="password" id="pollingpassword" value="" /></label>
+				<div id="actualpollingtabs" class="yui-navset">
+					<ul class="yui-nav">
+						<li class="selected"><a href="#sheetbuilder"><em>Sheet Builder</em></a></li>
+						<li><a href="#clipshort"><em>Clipboard Shortcuts/Links</em></a></li>
+						<li><a href="#sqltable"><em>SQL Table</em></a></li>
+					</ul>
+					<div class="yui-content" id="actualpollingcontent">
+						<div id="sheetbuilder">
+							<button id="pasteMSAT">Paste MSAT Data</button>&nbsp;<span id="msatStatus"></span><br />
+							<button id="pasteNotes">Paste Notes</button>&nbsp;<span id="notesStatus"></span><br />
+							<button id="buildSheet">Build Sheet</button><br />
+							<br />
+							BusinessDate Column: <select size=1 id="polldatecol">
+								<option value="0">A</option>
+								<option value="1">B</option>
+								<option value="2">C</option>
+								<option value="3">D</option>
+								<option value="4">E</option>
+								<option value="5">F</option>
+								<option value="6" selected>G</option>
+								<option value="7">H</option>
+								<option value="8">I</option>
+								<option value="9">J</option>
+								<option value="10">K</option>
+								<option value="11">L</option>
+								<option value="12">M</option>
+								<option value="13">N</option>
+								<option value="14">O</option>
+								<option value="15">P</option>
+								<option value="16">Q</option>
+								<option value="17">R</option>
+								<option value="18">S</option>
+								<option value="19">T</option>
+								<option value="20">U</option>
+								<option value="21">V</option>
+								<option value="22">W</option>
+								<option value="23">X</option>
+								<option value="24">Y</option>
+								<option value="25">Z</option>								
+							</select><br />
+							SiteNum Column: <select size=1 id="pollstorecol">
+								<option value="0">A</option>
+								<option value="1">B</option>
+								<option value="2" selected>C</option>
+								<option value="3">D</option>
+								<option value="4">E</option>
+								<option value="5">F</option>
+								<option value="6">G</option>
+								<option value="7">H</option>
+								<option value="8">I</option>
+								<option value="9">J</option>
+								<option value="10">K</option>
+								<option value="11">L</option>
+								<option value="12">M</option>
+								<option value="13">N</option>
+								<option value="14">O</option>
+								<option value="15">P</option>
+								<option value="16">Q</option>
+								<option value="17">R</option>
+								<option value="18">S</option>
+								<option value="19">T</option>
+								<option value="20">U</option>
+								<option value="21">V</option>
+								<option value="22">W</option>
+								<option value="23">X</option>
+								<option value="24">Y</option>
+								<option value="25">Z</option>								
+							</select><br />
+						</div>
+						<div id="clipshort">
+							<button id="regsvrsitcontroller">RegSvr sitcontroller.dll</button><br />
+							<button id="sql2008">SQL Password for Server 2008</button><br />
+							<button id="corflags">Corflags</button><br />
+							<button id="registry">Registry Fix</button><br />
+							<a href="file://dublnt01/ITPUBLIC/Micros Repoll Spreadsheets (Help Desk)" target="_blank">Micros Repoll Spreadsheets</a><br />
+							<a href="#" onclick="jinx.polling.openRepoll();return false;">RepollStores</a><br />
+							<a href="file://dublnt01/itpublic/0732/ClickOnce/MSAT%20Repolls%20Tracking/MSAT%20Repolls%20Tracking.application" target="_blank">MSAT Repolls Tracking</a><br />
+							<a href="#" onclick="jinx.polling.dubbs159();return false;">Micros 1 Polling</a><br />
+							<a href="#" onclick="jinx.polling.dubbs183();return false;">Micros 2 Polling</a><br />
+						</div>
+						<div id="sqltable">
+							<table style="width:100%">
+							<tr>
+								<td rowspan=2 style="width:50%">
+								<div id="callContainer"></div>
+								</td>
+								<td style="width:50%">
+								<button onclick="javascript:jinx.polling.buildSQL();">Build SQL</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<textarea style="width:100%" rows=10 id="results"></textarea>
+								</td>
+							</tr>
+							</table>
+							Warning, this may enter the wrong month. Always reopen the SQL table after using this tool and make sure the data you entered is correct.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="phonetab">
+			<label for="phonenum">Company Name:</label><input type="text" name="phonenum" id="phonenum" value="" />
+			<div id="phonehold">
+			</div>
+		</div>
+		<div id="settingstab">
+			<div id="settings">
+				<div class="bd" style="overflow-y: auto">
+					<label for="sorcerykey" class="thirdlabel required">Enter Sorcery Key (REQUIRED):</label><input type="password" name="sorcerykey" id="sorcerykey" /><br />
+					<label for="confirmsorcerykey" class="thirdlabel required">Confirm Sorcery Key:</label><input type="password" name="confirmsorcerykey" id="confirmsorcerykey" /><br />
+					<label for="currentadminpass" class="thirdlabel required">Current nss256wendys Password (REQUIRED):</label><input type="text" id="currentadminpass" /><br />
+					<label for="autoincmon" class="thirdlabel">Auto Open Incident Monitor:</label><input type="checkbox" name="autoincmon" id="autoincmon" /><br />
+					<label for="autocreateinc" class="thirdlabel">Auto Create Incident:</label><input type="checkbox" name="autocreateinc" id="autocreateinc" /><br />
+					<label for="passwordssync" class="thirdlabel">My Magic/Network/Oracle Passwords Are Synced:</label><input type="checkbox" checked="true" name="passwordssync" id="passwordssync" /><br />
+					<label for="networkpass" class="thirdlabel">Network Password:</label><input type="password" name="networkpass" id="networkpass" /><br />
+					<label for="posmagicpass" class="thirdlabel">POS Magic Password:</label><input type="password" name="posmagicpass" id="posmagicpass" /><br />
+					<label for="pcmagicpass" class="thirdlabel">PC Magic Password:</label><input type="password" name="pcmagicpass" id="pcmagicpass" /><br />
+					<label for="oraclepass" class="thirdlabel">Oracle Password:</label><input type="password" name="oraclepass" id="oraclepass" /><br />
+					<label for="schedulepass" class="thirdlabel">Schedule Password:</label><input type="password" name="schedulepass" id="schedulepass" /><br />
+					<label for="ncruser" class="thirdlabel">NCR Username:</label><input type="text" name="ncruser" id="ncruser" /><br />
+					<label for="ncrpass" class="thirdlabel">NCR Password:</label><input type="text" name="ncrpass" id="ncrpass" /><br />
+					<label for="welearnuser" class="thirdlabel">Welearn Username:</label><input type="text" name="welearnuser" id="welearnuser" /><br />
+					<label for="welearnpass" class="thirdlabel">Welearn Password:</label><input type="password" name="welearnpass" id="welearnpass" /><br />
+					<label for="rdres" class="thirdlabel">Remote Desktop Resolution:</label>
+					<select size=1 name="rdres" id="rdres">
+						<option value="" selected>Full Screen</option>
+						<option value="/w 1440 /h 900">1440x900</option>
+						<option value="/w 1280 /h 1024">1280x1024</option>
+						<option value="/w 1024 /h 768">1024x768</option>
+						<option value="/w 800 /h 600">800x600</option>
+					</select><br />
+					<label for="font" class="thirdlabel">Font:</label>
+					<select size=1 name="font" id="font">
+						<option value="Helvettica" selected>Helvettica</option>
+						<option value="Comic Sans MS">Comic Sans MS</option>
+						<option value="System">System</option>
+					</select><br />
+					<label for="bgcolor" class="thirdlabel">Background Color:</label><input type="text" name="bgcolor" id="bgcolor" /><br />
+					<label for="fgcolor" class="thirdlabel">Text Color:</label><input type="text" name="fgcolor" id="fgcolor" /><br />
+				</div>
+				<div class="ft"><p style="float:right"><button id="savesettings">Save Settings</button><button id="loadoldsettings">Load Old Sorcery Settings</button></p></div>
+			</div>
+		</div>
+		<div id="calllogtab">
+			<span id="calllog">
+			</span>
+			<pre id="actuallog">
+			</pre>
+		</div>
+		<div id="feedbacktab">
+			<span id="knownissues">
+				Known Issues/Bugs:<br /><br />
+				Services tab is slow with getting services.<br />
+				Occasional issue with both Incident Monitor and Create Incident buttons.<br />
+				Cannot ping Franchise/Lab stores.<br />
+				Oracle not pointing to the correct link.<br />
+				WeNet as Store still goes to the old URL.<br />
+				New Users are taken to the wrong tab on default.<br />
+				TWS IP Range needs to be corrected.
+			</span>
+			<span id="todolist">
+				To Do:<br /><br />
+				Add ability to choose text/background color in settings.<br />
+				Use FTP to determine type of OCS.<br />
+				Determine if store is using special IP for DMBs (Brookyln stores).<br />
+				Customizable UI.<br />
+				Have Sorcery install local files to resolve loading slowdown.<br />
+				Ability to delete logs from call log.<br />
+				Show how many tickets an agent has open.<br />
+				Customize size of packets.<br />
+				Change how the Call Log folders are sorted, newest to oldest.<br />
+				Auto Login Radiant Part-Ordering Page.<br />
+				Dynamically add/remove POS buttons based on how many registers the store has.<br />
+				Add link to Command Center.<br />
+				Store the user settings inside an SQL table.<br />
+				Grab all services of a device.<br />
+				Make Sorcery pull store data when user presses enter inside the Store ID box.<br />
+				Generic notes field that is constant.
+				<br />
+			</span>
+		</div>
+		<div id="consoletab">
+			<div id="console"></div>
+		</div>
+		<div id="sourcetab">
+			<span id="sourcelist">
+			</span>
+			<textarea id="showcode" style="border: 0px">
+			</textarea>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<span id="updater" style="border-right: 1px solid black">
+	</span>
+	<span id="version">
+	</span>
+	<span id="schedule">
+		<span id="lunch"></span>
+	</span>
+</div>
+
+<!-- POS Magic Login -->
+<form method="post" name="posform" id="posform" target="_blank" action="login.aspx?LOGIN=TRUE">
+	<input style="display:none" type="Submit" value="Login" />
+</form>
+
+<!-- PC Magic Login -->
+<form method="post" name="pcform" id="pcform" target="_blank" action="login.aspx?LOGIN=TRUE">
+
+	<input style="display:none" type="Submit" value="Login" />
+</form>
+
+<!-- WeLearn Login -->
+<form id="welearnform" name="LoginForm" action="SYS_login.aspx" target="_blank" method="post">
+</form>
+
+<!-- Oracle Login -->
+<form method="post" id="oracleform" name="oracleform" target="_blank" action="AppsLogin">
+</form>
+
+<!-- Contingent Login -->
+<form id="contingent" action="" method="post" target="_blank">
+</form>
+
+<!-- WeNet Login -->
+<form id="wenet" action="clienttoken.fcc" method="post" target="_blank">
+</form>
+
+<form name="159" id="159" target="_blank" action="/PortalLogIn/" method="POST">
+</form>
+
+<form name="183" id="183" target="_blank" action="/PortalLogIn/" method="POST">
+</form>
+
+<div id="loadSettingsDialog" class="yui-pe-content">
+<div class="hd">Load Settings</div>
+<div class="bd">
+<label>Your Sorcery Key:</label> <input type="password" id="enterSorceryKey" value="" /><br />
+<label>Save Sorcery Key:</label> <input type="checkbox" id="saveSorceryKey" />
+</div>
+</div>
+</body>
+</html>
